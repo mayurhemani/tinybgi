@@ -41,12 +41,14 @@ struct tinybgi {
       t.img.at<cv::Vec3b>(y, x) = cv::Vec3b(color.b, color.g, color.r);
       //std::cout << color.b << " " << color.g << " " << color.r << "\n";
     }
-    cv::imshow("tinybgi", t.img);
-    cv::waitKey(1);
+    //cv::imshow("tinybgi", t.img);
+    //cv::waitKey(1);
   }
 
-  static void closegraph() {
-    cv::waitKey(0);
+  static void closegraph(int delay=0) {
+    auto t = get();
+    cv::imshow("tinybgi", t.img);
+    cv::waitKey(delay);
   }
 
   static void setcolor(rgb_t color) {
